@@ -433,6 +433,9 @@ public class ARTemplateMenuManager : MonoBehaviour
         GameObject Clue0 = FindInActiveObjectByName("Clue0");
         Clue0.SetActive(false);
 
+        GameObject dark = FindInActiveObjectByName("Dark");
+        dark.SetActive(true);
+
         GameObject experimentStarterUI = FindInActiveObjectByName("ExperimentStarterUI");
         experimentStarterUI.SetActive(true);
     }

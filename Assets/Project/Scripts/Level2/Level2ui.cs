@@ -45,6 +45,7 @@ public class Level2ui : MonoBehaviour
     private Transform tankSpiralPoint;
     private Transform cylinderPoint;
     private Transform huniPoint;
+    private Transform TankTopPoint;
 
 
     void Start()
@@ -56,7 +57,7 @@ public class Level2ui : MonoBehaviour
         experimentIcons = FindInActiveObjectByName("Experiment");
         spiralInformationUI = FindInActiveObjectByName("SpiralInformationPanel");
 
-        ddm = GameObject.Find("DragDropManager").GetComponent<DragAndDropManager>();
+        ddm = FindInActiveObjectByName("DragDropManager").GetComponent<DragAndDropManager>();
 
         firstClue = FindInActiveObjectByName("Clue1");
         secondClue = FindInActiveObjectByName("Clue2");
@@ -66,19 +67,20 @@ public class Level2ui : MonoBehaviour
 
         thirdLevelSlot = FindInActiveObjectByName("Level3Panel");
 
-        roll = GameObject.Find("Roll01");
-        film = GameObject.Find("Film");
-        tank = GameObject.Find("SM_Tank");
-        tankSpiral = GameObject.Find("SM_Tank_Spiral");
-        cylinder = GameObject.Find("SM_Tank_Cylinder_Bottom");
-        huni = GameObject.Find("SM_Tank_Cylinder_Top");
+        roll = FindInActiveObjectByName("Roll01");
+        film = FindInActiveObjectByName("Film");
+        tank = FindInActiveObjectByName("SM_Tank");
+        tankSpiral = FindInActiveObjectByName("SM_Tank_Spiral");
+        cylinder = FindInActiveObjectByName("SM_Tank_Cylinder_Bottom");
+        huni = FindInActiveObjectByName("SM_Tank_Cylinder_Top");
 
-        rollPoint = GameObject.Find("RollPoint").transform;
-        filmPoint = GameObject.Find("FilmPoint").transform;
-        tankPoint = GameObject.Find("TankPoint").transform;
-        tankSpiralPoint = GameObject.Find("TankSpiralPoint").transform;
-        cylinderPoint = GameObject.Find("CylinderPoint").transform;
-        huniPoint = GameObject.Find("HuniPoint").transform;
+        rollPoint = FindInActiveObjectByName("RollPoint").transform;
+        filmPoint = FindInActiveObjectByName("FilmPoint").transform;
+        tankPoint = FindInActiveObjectByName("TankPoint").transform;
+        tankSpiralPoint = FindInActiveObjectByName("TankSpiralPoint").transform;
+        cylinderPoint = FindInActiveObjectByName("CylinderPoint").transform;
+        huniPoint = FindInActiveObjectByName("HuniPoint").transform;
+        TankTopPoint = FindInActiveObjectByName("TankTopPoint").transform;
     }
 
     public void StartExperiment() {
@@ -146,7 +148,7 @@ public class Level2ui : MonoBehaviour
 
     public IEnumerator AnimateTankSpiral() {
         tankSpiral.transform.DOKill();
-        tankSpiral.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.23f, tankPoint.position.z), 2f)
+        tankSpiral.transform.DOMove(TankTopPoint.position, 2f)
             .SetEase(Ease.Linear)
             .OnComplete(() => 
                 tankSpiral.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.001f, tankPoint.position.z), 2f)
@@ -159,7 +161,7 @@ public class Level2ui : MonoBehaviour
 
     public IEnumerator AnimateTankCylinder() {
         cylinder.transform.DOKill();
-        cylinder.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.23f, tankPoint.position.z), 2f)
+        cylinder.transform.DOMove(TankTopPoint.position, 2f)
             .SetEase(Ease.Linear)
             .OnComplete(() => 
                 cylinder.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.001f, tankPoint.position.z), 2f)
@@ -172,7 +174,7 @@ public class Level2ui : MonoBehaviour
 
     public IEnumerator AnimateTankHuni() {
         huni.transform.DOKill();
-        huni.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.23f, tankPoint.position.z), 2f)
+        huni.transform.DOMove(TankTopPoint.position, 2f)
             .SetEase(Ease.Linear)
             .OnComplete(() => 
                 huni.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.001f, tankPoint.position.z), 2f)
