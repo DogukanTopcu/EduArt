@@ -16,6 +16,8 @@ public class Level1ui : MonoBehaviour
     private GameObject FixerUI;
     private GameObject BeherUI;
 
+    private GameObject FinishUI;
+
 
     // Objects
 
@@ -76,6 +78,8 @@ public class Level1ui : MonoBehaviour
         film = GameObject.Find("Film");
         defaultFilmPos = GameObject.Find("filmDefaultPos").transform;
         filmInfoTransform = GameObject.Find("filmInfoPoint").transform;
+
+        FinishUI = FindInActiveObjectByName("Clue0");
 
         // Tank
         TankUI = FindInActiveObjectByName("TankUI");
@@ -317,6 +321,7 @@ public class Level1ui : MonoBehaviour
     public void Finish() {
         beher.transform.DOKill();
         BeherUI.SetActive(false);
+        FinishUI.SetActive(true);
 
         beher.transform.DOMove(defaultBeherPos.position, 1f).SetEase(Ease.OutQuad)
             .OnComplete(() =>

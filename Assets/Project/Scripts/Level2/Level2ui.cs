@@ -187,10 +187,15 @@ public class Level2ui : MonoBehaviour
     public IEnumerator EndLevel() {
         fifthClue.SetActive(false);
         experimentIcons.SetActive(false);
+        if (PlayerPrefs.GetInt("Level") < 3)
+        {
+            PlayerPrefs.SetInt("Level", 3);
+        }
+
         yield return new WaitForSeconds(2f);
         thirdLevelSlot.SetActive(false);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Education");
+        SceneManager.LoadScene("Level 3");
     }
 
     public GameObject FindInActiveObjectByName(string name)

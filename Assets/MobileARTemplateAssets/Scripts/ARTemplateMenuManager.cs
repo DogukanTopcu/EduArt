@@ -387,7 +387,7 @@ public class ARTemplateMenuManager : MonoBehaviour
 
     public void BackBtn()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("Education");
     }
 
     public void StartBtn()
@@ -437,6 +437,15 @@ public class ARTemplateMenuManager : MonoBehaviour
         experimentStarterUI.SetActive(true);
     }
 
+    public void NextLevelFunction(int currentLevel) {
+        if (currentLevel >= PlayerPrefs.GetInt("Level"))
+        {
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        }
+        int nextLevel = currentLevel + 1;
+        SceneManager.LoadScene("Level " + nextLevel);
+    }
+
     public GameObject FindInActiveObjectByName(string name)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
@@ -452,4 +461,5 @@ public class ARTemplateMenuManager : MonoBehaviour
         }
         return null;
     }
+
 }
