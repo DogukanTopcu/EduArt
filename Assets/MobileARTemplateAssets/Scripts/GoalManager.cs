@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 /// <summary>
 /// Onboarding goal to be achieved as part of the <see cref="GoalManager"/>.
 /// </summary>
-public struct Goal
+public struct PlayGroundGoal
 {
     /// <summary>
     /// Goal state this goal represents.
@@ -24,7 +24,7 @@ public struct Goal
     /// Creates a new Goal with the specified <see cref="GoalManager.OnboardingGoals"/>.
     /// </summary>
     /// <param name="goal">The <see cref="GoalManager.OnboardingGoals"/> state to assign to this Goal.</param>
-    public Goal(GoalManager.OnboardingGoals goal)
+    public PlayGroundGoal(GoalManager.OnboardingGoals goal)
     {
         CurrentGoal = goal;
         Completed = false;
@@ -181,9 +181,9 @@ public class GoalManager : MonoBehaviour
 
     const int k_NumberOfSurfacesTappedToCompleteGoal = 1;
 
-    Queue<Goal> m_OnboardingGoals;
+    Queue<PlayGroundGoal> m_OnboardingGoals;
     Coroutine m_CurrentCoroutine;
-    Goal m_CurrentGoal;
+    PlayGroundGoal m_CurrentGoal;
     bool m_AllGoalsFinished;
     int m_SurfacesTapped;
     int m_CurrentGoalIndex = 0;
@@ -290,20 +290,20 @@ public class GoalManager : MonoBehaviour
             m_OnboardingGoals.Clear();
         }
 
-        m_OnboardingGoals = new Queue<Goal>();
+        m_OnboardingGoals = new Queue<PlayGroundGoal>();
 
         if (!m_AllGoalsFinished)
         {
-            var findSurfaceGoal = new Goal(OnboardingGoals.FindSurfaces);
+            var findSurfaceGoal = new PlayGroundGoal(OnboardingGoals.FindSurfaces);
             m_OnboardingGoals.Enqueue(findSurfaceGoal);
         }
 
         int startingStep = m_AllGoalsFinished ? 1 : 0;
 
-        var tapSurfaceGoal = new Goal(OnboardingGoals.TapSurface);
-        var translateHintsGoal = new Goal(OnboardingGoals.Hints);
-        var scaleHintsGoal = new Goal(OnboardingGoals.Scale);
-        var rotateHintsGoal = new Goal(OnboardingGoals.Hints);
+        var tapSurfaceGoal = new PlayGroundGoal(OnboardingGoals.TapSurface);
+        var translateHintsGoal = new PlayGroundGoal(OnboardingGoals.Hints);
+        var scaleHintsGoal = new PlayGroundGoal(OnboardingGoals.Scale);
+        var rotateHintsGoal = new PlayGroundGoal(OnboardingGoals.Hints);
 
         m_OnboardingGoals.Enqueue(tapSurfaceGoal);
         m_OnboardingGoals.Enqueue(translateHintsGoal);

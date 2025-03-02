@@ -44,7 +44,7 @@ public class EduButtonManager : MonoBehaviour
         if (level >= 0)
         {
             Level1.GetComponent<Image>().sprite = OpenedLevelSprite;
-            Level1.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Level 1";
+            Level1.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 1";
             Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level1.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 1"));
         }
@@ -52,7 +52,7 @@ public class EduButtonManager : MonoBehaviour
         if (level > 1)
         {
             Level2.GetComponent<Image>().sprite = OpenedLevelSprite;
-            Level2.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Level 2";
+            Level2.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 2";
             Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level2.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 2"));
         }
@@ -60,7 +60,7 @@ public class EduButtonManager : MonoBehaviour
         if (level > 2)
         {
             Level3.GetComponent<Image>().sprite = OpenedLevelSprite;
-            Level3.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Level 3";
+            Level3.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 3";
             Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level3.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 3"));
         }
@@ -68,7 +68,7 @@ public class EduButtonManager : MonoBehaviour
         if (level > 3)
         {
             Level4.GetComponent<Image>().sprite = OpenedLevelSprite;
-            Level4.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Level 4";
+            Level4.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 4";
             Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level4.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 4"));
         }
@@ -76,7 +76,7 @@ public class EduButtonManager : MonoBehaviour
         if (level > 4)
         {
             Level5.GetComponent<Image>().sprite = OpenedLevelSprite;
-            Level5.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Level 5";
+            Level5.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 5";
             Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level5.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 5"));
         }
