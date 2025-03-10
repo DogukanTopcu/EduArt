@@ -263,6 +263,7 @@ Transform:
   - {fileID: 8657996137894503742}
   - {fileID: 3706834555213549175}
   - {fileID: 2908326745927551443}
+  - {fileID: 5820290908139341357}
   - {fileID: 7814560830240526652}
   - {fileID: 1410862462021446126}
   - {fileID: 3236336437675907458}
@@ -725,6 +726,37 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.691, y: 0.415, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4928235566464154338}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1799870912029372105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5820290908139341357}
+  m_Layer: 0
+  m_Name: ShakingPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5820290908139341357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799870912029372105}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.17733331, y: 0.603, z: -0.19933331}
+  m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4928235566464154338}
@@ -1748,7 +1780,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Bu seviyede tank\u0131m\u0131z\u0131n i\xE7ine yerle\u015Ftirdi\u011Fimiz
-    filmimizi bire bir oranda haz\u0131rlad\u0131\u011F\u0131m\u0131z geli\u015Ftirici
+    filmimize bire bir oranda haz\u0131rlad\u0131\u011F\u0131m\u0131z geli\u015Ftirici
     s\u0131v\u0131m\u0131z\u0131 d\xF6kece\u011Fiz."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

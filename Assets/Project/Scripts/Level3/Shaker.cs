@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 
 public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -32,6 +33,8 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private GameObject TankFaucetPos1;
     private GameObject TankFaucetPos2;
 
+    private GameObject ShakingPos;
+
 
     private float timer = 0f;
     private bool isShaking = false;
@@ -40,6 +43,9 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public ARTemplateMenuManager menuManager;
 
     private GameObject shakingObject;
+
+    private GameObject textTimer;
+    private GameObject textTimer2;
 
 
     void Start()
@@ -54,6 +60,9 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         NextButton = FindInActiveObjectByName("NextButton");
 
         isShaker1 = this.transform.parent.name == "ButtonsPanel";
+
+        textTimer = FindInActiveObjectByName("timer");
+        textTimer2 = FindInActiveObjectByName("timer2");
     }
 
     private void Update() {
@@ -63,6 +72,7 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             TankInitial = FindInActiveObjectByName("FilmTank");
             TankFaucetPos1 = FindInActiveObjectByName("TankFaucetPos1");
             TankFaucetPos2 = FindInActiveObjectByName("TankFaucetPos2");
+            ShakingPos = FindInActiveObjectByName("ShakingPos");
 
             shakingObject = Tank;
             flag3 = false;
@@ -84,6 +94,12 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 PourButton.GetComponent<Button>().interactable = true;
                 this.GetComponent<Button>().interactable = false;
             }
+            else
+            {
+                textTimer.GetComponent<TextMeshProUGUI>().text = (5f - timer).ToString("F1");
+                textTimer2.GetComponent<TextMeshProUGUI>().text = (5f - timer).ToString("F1");
+            }
+            
         }
 
         if (timerComplete && totalShake == 0 && isShaker1)
@@ -97,14 +113,14 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Clue7.SetActive(false);
         }
 
-        if (totalShake == 5f && flag1)
+        if (totalShake == 2f && flag1)
         {
             flag1 = false;
             Clue8.SetActive(true);
             NextButton.SetActive(true);
         }
 
-        if (totalShake == 6f)
+        if (totalShake == 3f)
         {
             Clue8.SetActive(false);
         }
@@ -125,6 +141,11 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (this.GetComponent<Button>().interactable == false) return;
+
+        textTimer.SetActive(true);
+        textTimer2.SetActive(true);
+
         if (ddm.Level >= 5 && flag2)
         {
             TankInitial.transform.DOKill();
@@ -163,6 +184,9 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        textTimer.SetActive(false);
+        textTimer2.SetActive(false);
+
         shakingObject.transform.DOPause();
         isShaking = false;
     }
@@ -175,7 +199,7 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 tempPos = new Vector3(Tank.transform.position.x,Tank.transform.position.y,Tank.transform.position.z);
             Tank.transform.DOKill();
             Tank.transform.DOMoveY(TankInitial.transform.position.y, 0.05f)
-                .OnComplete(() => Tank.transform.DOMoveY(tempPos.y, 0.15f));
+                .OnComplete(() => Tank.transform.DOMove(ShakingPos.transform.position, 0.15f));
             hitNumber++;
 
             if (hitNumber == 3)

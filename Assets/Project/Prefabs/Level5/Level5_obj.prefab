@@ -5859,7 +5859,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Bu seviyede kimyasallardan ge\xE7irdi\u011Fimiz filmimizi tank\u0131m\u0131zdan
-    \xE7\u0131karacak ve durrdurma a\u015Famas\u0131 i\xE7in filmimizi kurumaya b\u0131rakaca\u011F\u0131z."
+    \xE7\u0131karacak ve durdurma a\u015Famas\u0131 i\xE7in filmimizi kurumaya b\u0131rakaca\u011F\u0131z."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

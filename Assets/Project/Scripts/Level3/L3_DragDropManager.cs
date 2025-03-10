@@ -63,6 +63,7 @@ public class L3_DragDropManager : MonoBehaviour
     private GameObject Cap;
 
     private Vector3 TankInitialPos;
+    private Vector3 ShakingPos;
 
 
     public ARTemplateMenuManager menuManager;
@@ -110,6 +111,7 @@ public class L3_DragDropManager : MonoBehaviour
             flag1 = false;
         }
         TankInitialPos = FindInActiveObjectByName("FilmTank").transform.position;
+        ShakingPos = FindInActiveObjectByName("ShakingPos").transform.position;
 
         switch(level) {
             case 1:
@@ -150,7 +152,7 @@ public class L3_DragDropManager : MonoBehaviour
         ButtonsPanel.SetActive(true);
 
         Tank_Closed.transform.DOKill();
-        Tank_Closed.transform.DOMoveY(Tank_Closed.transform.position.y + 0.2f, 0.5f);
+        Tank_Closed.transform.DOMove(ShakingPos, 0.5f);
 
         Clue6.SetActive(true);
         Clue5.SetActive(false);
