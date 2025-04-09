@@ -113,21 +113,13 @@ public class Level4ui : MonoBehaviour
         {
             ddm.IsDraggingValid = false;
             flag2 = false;
-            Clue2.SetActive(false);
-            StartCoroutine(BeherAnimation());
-        }
-
-        if (ddm.Level == 3 && flag3)
-        {
-            ddm.IsDraggingValid = false;
-            flag3 = false;
             Clue3.SetActive(false);
             StartCoroutine(BeherTankAnimation());
         }
 
-        if (ddm.Level == 4 && flag4)
+        if (ddm.Level == 3 && flag3)
         {
-            flag4 = false;
+            flag3 = false;
             Clue4.SetActive(false);
             Tank_Cap.transform.position = Tank.transform.position;
             Tank.SetActive(false);
@@ -136,18 +128,18 @@ public class Level4ui : MonoBehaviour
             Clue5.SetActive(true);
         }
 
-        if (ddm.Level == 5 && flag5)
+        if (ddm.Level == 4 && flag4)
         {
             ddm.IsDraggingValid = false;
-            flag5 = false;
+            flag4 = false;
             Clue9.SetActive(false);
             StartCoroutine(EmptyFixer());
         }
 
-        if (ddm.Level == 6 && flag6)
+        if (ddm.Level == 5 && flag5)
         {
             ddm.IsDraggingValid = false;
-            flag6 = false;
+            flag5 = false;
             Clue10.SetActive(false);
             StartCoroutine(TankFaucet());
         }
@@ -165,7 +157,7 @@ public class Level4ui : MonoBehaviour
             );
         yield return new WaitForSeconds(4f);
         Beher.SetActive(false);
-        Beher_Half.SetActive(true);
+        Beher_Full.SetActive(true);
 
         Fixer.transform.DOKill();
 
@@ -177,32 +169,32 @@ public class Level4ui : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         ddm.IsDraggingValid = true;
-        Clue2.SetActive(true);
-    }
-
-    private IEnumerator BeherAnimation()
-    {
-        Beher_Half.transform.DOKill();
-        Beher_Half.transform.DOMove(BeherCheckpointPos.transform.position, 0.5f)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() => 
-                Beher_Half.transform.DOMove(BeherFaucetPoint.transform.position, 1f)
-            );
-        yield return new WaitForSeconds(4f);
-        Beher_Half.SetActive(false);
-        Beher_Full.SetActive(true);
-
-        Beher_Full.transform.DOKill();
-        Beher_Full.transform.DOMove(BeherCheckpointPos.transform.position, 1f)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() => 
-                Beher_Full.transform.DOMove(BeherDefaultPos.transform.position, 0.5f)
-            );
-        yield return new WaitForSeconds(2f);
-        
-        ddm.IsDraggingValid = true;
         Clue3.SetActive(true);
     }
+
+    // private IEnumerator BeherAnimation()
+    // {
+    //     Beher_Half.transform.DOKill();
+    //     Beher_Half.transform.DOMove(BeherCheckpointPos.transform.position, 0.5f)
+    //         .SetEase(Ease.OutQuad)
+    //         .OnComplete(() => 
+    //             Beher_Half.transform.DOMove(BeherFaucetPoint.transform.position, 1f)
+    //         );
+    //     yield return new WaitForSeconds(4f);
+    //     Beher_Half.SetActive(false);
+    //     Beher_Full.SetActive(true);
+
+    //     Beher_Full.transform.DOKill();
+    //     Beher_Full.transform.DOMove(BeherCheckpointPos.transform.position, 1f)
+    //         .SetEase(Ease.OutQuad)
+    //         .OnComplete(() => 
+    //             Beher_Full.transform.DOMove(BeherDefaultPos.transform.position, 0.5f)
+    //         );
+    //     yield return new WaitForSeconds(2f);
+        
+    //     ddm.IsDraggingValid = true;
+    //     Clue3.SetActive(true);
+    // }
 
     private IEnumerator BeherTankAnimation() {
         Fixer.transform.DOKill();

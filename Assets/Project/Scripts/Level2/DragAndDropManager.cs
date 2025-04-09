@@ -39,7 +39,7 @@ public class DragAndDropManager : MonoBehaviour
     private GameObject UI_Cylinder;
     private GameObject UI_Huni;
     private GameObject UI_Film_Spiral;
-    private GameObject UI_Film_Spiral_Tank;
+    private GameObject UI_Cylinder_Tank;
     private GameObject UI_Film_Spiral_Tank_Cylinder;
     private GameObject UI_Film_Spiral_Tank_Cylinder_Huni;
 
@@ -57,13 +57,13 @@ public class DragAndDropManager : MonoBehaviour
         UI_Cylinder = FindInActiveObjectByName("UI_Cylinder");
         UI_Huni = FindInActiveObjectByName("UI_Huni");
         UI_Film_Spiral = FindInActiveObjectByName("UI_Film-Spiral");
-        UI_Film_Spiral_Tank = FindInActiveObjectByName("UI_Film-Spiral-Tank");
+        UI_Cylinder_Tank = FindInActiveObjectByName("UI_Cylinder-Tank");
         UI_Film_Spiral_Tank_Cylinder = FindInActiveObjectByName("UI_Film-Spiral-Tank-Cylinder");
         UI_Film_Spiral_Tank_Cylinder_Huni = FindInActiveObjectByName("UI_Film-Spiral-Tank-Cylinder-Huni");
 
         relationsQueue.Add(new List<GameObject> { UI_Film.transform.GetChild(0).gameObject, UI_Spiral });
-        relationsQueue.Add(new List<GameObject> { UI_Film_Spiral.transform.GetChild(0).gameObject, UI_Tank });
-        relationsQueue.Add(new List<GameObject> { UI_Cylinder.transform.GetChild(0).gameObject, UI_Film_Spiral_Tank });
+        relationsQueue.Add(new List<GameObject> { UI_Cylinder.transform.GetChild(0).gameObject, UI_Tank });
+        relationsQueue.Add(new List<GameObject> { UI_Film_Spiral.transform.GetChild(0).gameObject, UI_Cylinder_Tank });
         relationsQueue.Add(new List<GameObject> { UI_Huni.transform.GetChild(0).gameObject, UI_Film_Spiral_Tank_Cylinder });
     }
 
@@ -77,12 +77,12 @@ public class DragAndDropManager : MonoBehaviour
                 break;
             case 2:
                 UI_Tank.SetActive(false);
-                UI_Film_Spiral.SetActive(false);
-                UI_Film_Spiral_Tank.SetActive(true);
+                UI_Cylinder.SetActive(false);
+                UI_Cylinder_Tank.SetActive(true);
                 break;
             case 3:
-                UI_Cylinder.SetActive(false);
-                UI_Film_Spiral_Tank.SetActive(false);
+                UI_Film_Spiral.SetActive(false);
+                UI_Cylinder_Tank.SetActive(false);
                 UI_Film_Spiral_Tank_Cylinder.SetActive(true);
                 break;
             case 4:

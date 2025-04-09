@@ -120,7 +120,7 @@ public class Level2ui : MonoBehaviour
             ddm.IsDraggingValid = false;
             flag2 = false;
             secondClue.SetActive(false);
-            StartCoroutine(AnimateTankSpiral());
+            StartCoroutine(AnimateTankCylinder());
         }
 
         if (ddm.Level == 3 && flag3)
@@ -128,7 +128,7 @@ public class Level2ui : MonoBehaviour
             ddm.IsDraggingValid = false;
             flag3 = false;
             thirdClue.SetActive(false);
-            StartCoroutine(AnimateTankCylinder());
+            StartCoroutine(AnimateTankSpiral());
         }
 
         if (ddm.Level == 4 && flag4)
@@ -146,19 +146,6 @@ public class Level2ui : MonoBehaviour
         }
     }
 
-    public IEnumerator AnimateTankSpiral() {
-        tankSpiral.transform.DOKill();
-        tankSpiral.transform.DOMove(TankTopPoint.position, 2f)
-            .SetEase(Ease.Linear)
-            .OnComplete(() => 
-                tankSpiral.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.001f, tankPoint.position.z), 2f)
-                .SetEase(Ease.Linear)
-            );
-        yield return new WaitForSeconds(4f);
-        thirdClue.SetActive(true);
-        ddm.IsDraggingValid = true;
-    }
-
     public IEnumerator AnimateTankCylinder() {
         cylinder.transform.DOKill();
         cylinder.transform.DOMove(TankTopPoint.position, 2f)
@@ -168,9 +155,23 @@ public class Level2ui : MonoBehaviour
                 .SetEase(Ease.Linear)
             );
         yield return new WaitForSeconds(4f);
+        thirdClue.SetActive(true);
+        ddm.IsDraggingValid = true;
+    }
+
+    public IEnumerator AnimateTankSpiral() {
+        tankSpiral.transform.DOKill();
+        tankSpiral.transform.DOMove(TankTopPoint.position, 2f)
+            .SetEase(Ease.Linear)
+            .OnComplete(() => 
+                tankSpiral.transform.DOMove(new Vector3(tankPoint.position.x, tankPoint.position.y + 0.001f, tankPoint.position.z), 2f)
+                .SetEase(Ease.Linear)
+            );
+        yield return new WaitForSeconds(4f);
         fourthClue.SetActive(true);
         ddm.IsDraggingValid = true;
     }
+    
 
     public IEnumerator AnimateTankHuni() {
         huni.transform.DOKill();

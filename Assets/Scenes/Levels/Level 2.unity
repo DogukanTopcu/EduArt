@@ -939,7 +939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 749.2308, y: -84.039}
+  m_AnchoredPosition: {x: 949.2308, y: -84.039}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171061240
@@ -4487,8 +4487,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Filmimizi spirale yerle\u015Ftirdikten sonra, spiralimizi dikkatli bir
-    \u015Fekilde tank\u0131m\u0131z\u0131n i\xE7erisine yerle\u015Ftiriyoruz  "
+  m_text: "Tanka d\xF6k\xFClen kimyasal\u0131n spiral i\xE7erisine e\u015Fit da\u011F\u0131lmas\u0131
+    ve spiralin tank i\xE7erisinde sabit kalmas\u0131 i\xE7in tank\u0131m\u0131z\u0131n
+    i\xE7erisine silindirimizi yerle\u015Ftiriyoruz."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5311,7 +5312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8534836ff0d14dc1a05af03767890aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f23f9d7fde2c24a968b61fde52cfbee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7024,7 +7025,7 @@ GameObject:
   - component: {fileID: 1542113229}
   - component: {fileID: 1542113228}
   m_Layer: 5
-  m_Name: UI_Film-Spiral-Tank
+  m_Name: UI_Cylinder-Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7630,9 +7631,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tanka d\xF6k\xFClen kimyasal\u0131n spiral i\xE7erisine e\u015Fit da\u011F\u0131lmas\u0131
-    ve spiralin tank i\xE7erisinde sabit kalmas\u0131 i\xE7in tank\u0131m\u0131z\u0131n
-    i\xE7erisine silindirimizi yerle\u015Ftiriyoruz."
+  m_text: "\u0130\xE7ine filmimizi yerle\u015Ftirdi\u011Fimiz spiralimizi dikkatli
+    bir \u015Fekilde tank\u0131m\u0131z\u0131n i\xE7erisine yerle\u015Ftiriyoruz."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8131,7 +8131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 549.2308, y: -84.039}
+  m_AnchoredPosition: {x: 749.2308, y: -84.039}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906025272

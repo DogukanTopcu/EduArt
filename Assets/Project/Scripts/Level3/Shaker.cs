@@ -248,7 +248,7 @@ public class Shaker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         yield return new WaitForSeconds(1.5f);
 
-        if (totalPour == 3)
+        if (totalPour == 1)
         {
             TankInitial.transform.DOKill();
             TankInitial.transform.DOMove(Tank.transform.position, 1f)

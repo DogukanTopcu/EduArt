@@ -177,7 +177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Geli\u015Ftirici kar\u0131\u015F\u0131m\u0131m\u0131z\u0131 haz\u0131rlamak
-    i\xE7in beherimize, yar\u0131s\u0131na gelecek kadar D-76 d\xF6k\xFCyoruz."
+    i\xE7in beherimize, \xF6nerilen miktarda geli\u015Ftiricimizi d\xF6k\xFCyoruz."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5127,7 +5127,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u015Eimdi de tank\u0131m\u0131z\u0131 geli\u015Ftiricimizden ar\u0131nd\u0131rmak
-    ad\u0131na su ile birka\xE7 kez \xE7alkalamam\u0131z gerekiyor."
+    ad\u0131na Durdurma Banyosundan ge\xE7irmemiz gerekiyor."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5263,8 +5263,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tank\u0131m\u0131z\u0131 kimyasaldan iyice ar\u0131nd\u0131rmak i\xE7in
-    3 kez tank\u0131m\u0131z\u0131 suyla doldurup d\xF6k\xFCyoruz."
+  m_text: "Durdurma banyosu i\xE7in tank\u0131m\u0131z\u0131 suyla doldurup iyice
+    \xE7alakl\u0131yoruz ve lavobomuza d\xF6k\xFCyoruz."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -64,11 +64,11 @@ public class QuizManager_Negative : MonoBehaviour
         );
 
         Question q4 = new Question(
-            question: "İkinci banyonun amacı nedir?",
+            question: "Üçüncü banyonun amacı nedir?",
             answer1: "Filmi geliştirip pozitif görüntü elde etmek",
             answer2: "Filmin ışığa duyarlılığını artırmak",
             answer3: "Filmin kimyasal reaksiyonlarını durdurmak",
-            correctAnswer: "Filmin görüntüsünü sabitlemek"
+            correctAnswer: "Filmin görüntüsünü sabitlemek (Fixer)"
         );
 
         Question q5 = new Question(

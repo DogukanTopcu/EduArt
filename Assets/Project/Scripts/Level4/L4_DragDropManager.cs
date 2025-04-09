@@ -98,7 +98,6 @@ public class L4_DragDropManager : MonoBehaviour
         Experiment2 = FindInActiveObjectByName("Experiment2");
 
         relationsQueue.Add(new List<GameObject> { UI_Fixer.transform.GetChild(0).gameObject, UI_Beher });
-        relationsQueue.Add(new List<GameObject> { UI_Beher_Half.transform.GetChild(0).gameObject, UI_Faucet });
         relationsQueue.Add(new List<GameObject> { UI_Beher_Full.transform.GetChild(0).gameObject, UI_Tank });
         relationsQueue.Add(new List<GameObject> { UI_Cap.transform.GetChild(0).gameObject, UI_Tank_Beher });
         relationsQueue.Add(new List<GameObject> { UI_Tank_Beher2.transform.GetChild(0).gameObject, UI_Fixer2 });
@@ -120,28 +119,23 @@ public class L4_DragDropManager : MonoBehaviour
             case 1:
                 UI_Fixer.SetActive(false);
                 UI_Beher.SetActive(false);
-                UI_Beher_Half.SetActive(true);
-                break;
-            case 2:
-                UI_Faucet.SetActive(false);
-                UI_Beher_Half.SetActive(false);
                 UI_Beher_Full.SetActive(true);
                 break;
-            case 3:
+            case 2:
                 UI_Tank.SetActive(false);
                 UI_Beher_Full.SetActive(false);
                 UI_Tank_Beher.SetActive(true);
                 break;
-            case 4:
+            case 3:
                 UI_Cap.SetActive(false);
                 UI_Tank_Beher.SetActive(false);
                 UI_Tank_Closed.SetActive(true);
                 break;
-            case 5:
+            case 4:
                 UI_Tank_Beher2.SetActive(false);
                 UI_Tank2.SetActive(true);
                 break;
-            case 6:
+            case 5:
                 Experiment2.SetActive(false);
                 break;
             default:
