@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level 6.unity
     guid: bfc8c1620c4b34e59a9fc3f8729f1de2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 7.unity
+    guid: 075296dc62084451ba506b2d6e2c6a43
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 8.unity
+    guid: 713ec162e140148d0b0d244ec8905dac
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

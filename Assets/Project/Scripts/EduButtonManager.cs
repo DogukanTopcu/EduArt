@@ -13,6 +13,9 @@ public class EduButtonManager : MonoBehaviour
     private GameObject Level5;
     private GameObject Quiz;
     private GameObject Level6;
+    private GameObject Level7;
+    private GameObject Level8;
+    private GameObject Quiz2;
 
     [SerializeField]
     private int level;
@@ -40,6 +43,10 @@ public class EduButtonManager : MonoBehaviour
         Level4 = GameObject.Find("Level4");
         Level5 = GameObject.Find("Level5");
         Quiz = GameObject.Find("Level6");
+        Level6 = GameObject.Find("Level7");
+        Level7 = GameObject.Find("Level8");
+        Level8 = GameObject.Find("Level9");
+        Quiz2 = GameObject.Find("Level10");
 
         if (level >= 0)
         {
@@ -53,7 +60,7 @@ public class EduButtonManager : MonoBehaviour
         {
             Level2.GetComponent<Image>().sprite = OpenedLevelSprite;
             Level2.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 2";
-            Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level2.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level2.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 2"));
         }
 
@@ -61,7 +68,7 @@ public class EduButtonManager : MonoBehaviour
         {
             Level3.GetComponent<Image>().sprite = OpenedLevelSprite;
             Level3.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 3";
-            Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level3.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level3.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 3"));
         }
 
@@ -69,7 +76,7 @@ public class EduButtonManager : MonoBehaviour
         {
             Level4.GetComponent<Image>().sprite = OpenedLevelSprite;
             Level4.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 4";
-            Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level4.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level4.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 4"));
         }
 
@@ -77,15 +84,46 @@ public class EduButtonManager : MonoBehaviour
         {
             Level5.GetComponent<Image>().sprite = OpenedLevelSprite;
             Level5.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 5";
-            Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level5.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Level5.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 5"));
         }
 
         if (level > 5)
         {
             Quiz.GetComponent<Image>().color = Color.white;
-            Level1.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Quiz.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
             Quiz.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 6"));
+        }
+
+        if (level > 6)
+        {
+            Level6.GetComponent<Image>().sprite = OpenedLevelSprite;
+            Level6.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 6";
+            Level6.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level6.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 7"));
+        }
+
+        if (level > 7)
+        {
+            Level7.GetComponent<Image>().sprite = OpenedLevelSprite;
+            Level7.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 7";
+            Level7.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level7.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 8"));
+        }
+
+        if (level > 8)
+        {
+            Level8.GetComponent<Image>().sprite = OpenedLevelSprite;
+            Level8.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Seviye 8";
+            Level8.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            Level8.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 9"));
+        }
+
+        if (level > 9)
+        {
+            Quiz2.GetComponent<Image>().color = Color.white;
+            Quiz2.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            // Quiz2.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 9"));
         }
     }
 

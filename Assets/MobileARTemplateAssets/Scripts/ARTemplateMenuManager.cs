@@ -424,6 +424,11 @@ public class ARTemplateMenuManager : MonoBehaviour
             GameObject StopInfoUI = FindInActiveObjectByName("StopInfoUI");
             StopInfoUI.SetActive(true);
         }
+        else if (SceneManager.GetActiveScene().name == "Level 7")
+        {
+            GameObject StopInfoUI = FindInActiveObjectByName("LightDeskInfoUI");
+            StopInfoUI.SetActive(true);
+        }
         
         GameObject StartPanel = FindInActiveObjectByName("StartPanel");
         StartPanel.SetActive(false);
