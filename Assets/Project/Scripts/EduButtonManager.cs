@@ -123,7 +123,7 @@ public class EduButtonManager : MonoBehaviour
         {
             Quiz2.GetComponent<Image>().color = Color.white;
             Quiz2.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
-            // Quiz2.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 9"));
+            Quiz2.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Level 10"));
         }
     }
 

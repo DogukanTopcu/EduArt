@@ -464,6 +464,15 @@ public class ARTemplateMenuManager : MonoBehaviour
         SceneManager.LoadScene("Level " + nextLevel);
     }
 
+    public void CompleteAndReturnLevel6(int currentLevel)
+    {
+        if (currentLevel >= PlayerPrefs.GetInt("Level"))
+        {
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        }
+        SceneManager.LoadScene("Level 7");
+    }
+
     public GameObject FindInActiveObjectByName(string name)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];

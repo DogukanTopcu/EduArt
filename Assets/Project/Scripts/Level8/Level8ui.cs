@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq.Expressions;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -110,8 +107,8 @@ public class Level8ui : MonoBehaviour
             selectedImage = images[selectedImageName];
         }
         else {
-            selectedImageName = "image1";
-            selectedImage = images["image1"];
+            selectedImageName = "image3";
+            selectedImage = images["image3"];
         }
 
         if (selectedImageName == "image2") {
@@ -129,10 +126,10 @@ public class Level8ui : MonoBehaviour
             
             focusSettingsPanel.GetComponentInChildren<Button>().onClick.AddListener(() => StartCoroutine(OnNextButtonClick()));
             
-            focusSlider.GetComponent<Slider>().onValueChanged.AddListener((value) =>
-            {
-                // Make Blur Updates
-            });
+            // focusSlider.GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            // {
+            //     // Make Blur Updates
+            // });
         });
     }
 
