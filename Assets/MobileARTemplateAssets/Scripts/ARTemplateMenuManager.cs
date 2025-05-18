@@ -434,6 +434,11 @@ public class ARTemplateMenuManager : MonoBehaviour
             GameObject StopInfoUI = FindInActiveObjectByName("Clue1");
             StopInfoUI.SetActive(true);
         }
+        else if (SceneManager.GetActiveScene().name == "Level 9")
+        {
+            GameObject StopInfoUI = FindInActiveObjectByName("Clue1");
+            StopInfoUI.SetActive(true);
+        }
         
         GameObject StartPanel = FindInActiveObjectByName("StartPanel");
         StartPanel.SetActive(false);
