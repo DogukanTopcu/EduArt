@@ -51,6 +51,9 @@ public class Level8ui : MonoBehaviour
     private GameObject Dark;
     private GameObject PozometerSelection;
 
+    private Slider resolutionSlider;
+    private Image resolutionSliderImage;
+
 
     // Clues:
     private GameObject clue_1;
@@ -67,7 +70,7 @@ public class Level8ui : MonoBehaviour
     private String selectedImageName;
     private String selectedPosometerTime;
 
-
+    
     void Awake()
     {
         HorizontalMarjorPoint = FindInActiveObjectByName("HorizontalMarjorPoint");
@@ -127,6 +130,9 @@ public class Level8ui : MonoBehaviour
         warning = FindInActiveObjectByName("Warning");
 
         selectedImageName = PlayerPrefs.GetString("SelectedImage");
+
+
+        resolutionSlider = FindInActiveObjectByName("SliderS").GetComponent<Slider>();
     }
 
     void Start()
@@ -136,8 +142,8 @@ public class Level8ui : MonoBehaviour
             selectedImage = images[selectedImageName];
         }
         else {
-            selectedImageName = "image2";
-            selectedImage = images["image2"];
+            selectedImageName = "image1";
+            selectedImage = images["image1"];
         }
 
         if (selectedImageName == "image2") {
@@ -149,6 +155,8 @@ public class Level8ui : MonoBehaviour
             focusedImage1.SetActive(false);
             focusedImage2.SetActive(true);
             focusedImage3.SetActive(false);
+
+            resolutionSliderImage = focusedImage2.transform.GetChild(0).GetComponent<Image>();
         }
         else if (selectedImageName == "image3")
         {
@@ -159,6 +167,8 @@ public class Level8ui : MonoBehaviour
             Destroy(card1.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
             Destroy(card2.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
             Destroy(card3.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
+
+            resolutionSliderImage = focusedImage3.transform.GetChild(0).GetComponent<Image>();
         }
         else {
             focusedImage1.SetActive(true);
@@ -168,6 +178,8 @@ public class Level8ui : MonoBehaviour
             Destroy(card1.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
             Destroy(card2.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
             Destroy(card3.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
+
+            resolutionSliderImage = focusedImage1.transform.GetChild(0).GetComponent<Image>();
         }
 
         selectedImage.SetActive(true);
@@ -179,11 +191,35 @@ public class Level8ui : MonoBehaviour
             
             focusSettingsPanel.GetComponentInChildren<Button>().onClick.AddListener(() => StartCoroutine(OnNextButtonClick()));
             
-            // focusSlider.GetComponent<Slider>().onValueChanged.AddListener((value) =>
-            // {
-            //     // Make Blur Updates
-            // });
+            focusSlider.GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            {
+                OnSliderValueChanged(value);
+            });
         });
+    }
+
+    private void OnSliderValueChanged(float t)
+    {
+        float number;
+        if (t <= 0.55f)
+        {
+            // 100'den 0'a lineer
+            number = 100f * (1f - t / 0.55f);
+        }
+        else if (t <= 0.6f)
+        {
+            // Sabit 0
+            number = 0f;
+        }
+        else
+        {
+            // 0'dan 120'ye lineer
+            number = 120f * ((t - 0.6f) / 0.4f);
+        }
+
+        Color color = resolutionSliderImage.color;
+        color.a = number / 255f;
+        resolutionSliderImage.color = color;
     }
 
 
