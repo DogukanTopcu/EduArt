@@ -110,7 +110,7 @@ public class Level9ui : MonoBehaviour
     {
         ddm = GameObject.Find("DragDropManager").GetComponent<L9_DragDropManager>();
 
-        selectedImage = PlayerPrefs.GetString("selectedImage") == "" ? "image1" : PlayerPrefs.GetString("selectedImage");
+        selectedImage = PlayerPrefs.GetString("SelectedImage") == "" ? "image1" : PlayerPrefs.GetString("SelectedImage");
         selectedPosometerTime = PlayerPrefs.GetString("selectedPosometerTime") == "" ? "3" : PlayerPrefs.GetString("selectedPosometerTime");
 
         imageDictionary.Add("image1", new Dictionary<string, Material>()
@@ -229,6 +229,8 @@ public class Level9ui : MonoBehaviour
                 Experiment2_Cart.transform.GetChild(0).gameObject.SetActive(false);
                 Experiment2_Cart.transform.GetChild(1).gameObject.SetActive(false);
                 Experiment2_Cart.transform.GetChild(2).gameObject.SetActive(true);
+
+                FinalPanel.transform.GetChild(0).gameObject.GetComponent<RawImage>().texture = image3Textures[selectedPosometerTime];
             }
         }
 
@@ -316,7 +318,6 @@ public class Level9ui : MonoBehaviour
             StartCoroutine(ToRope());
         }
     }
-
 
 
 

@@ -15,7 +15,6 @@ public class L9_InventorySlot : MonoBehaviour, IDropHandler
 
         if (isExperiment)
         {
-            Debug.Log("Dropped: " + ddm.RelationsQueue[ddm.Level][0]);
             if (dropped.gameObject == ddm.RelationsQueue[ddm.Level][0] && transform.gameObject == ddm.RelationsQueue[ddm.Level][1])
             {
                 draggableItem.parentAfterDrag = transform;

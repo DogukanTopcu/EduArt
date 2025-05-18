@@ -74,7 +74,20 @@ public class L9_DragDropManager : MonoBehaviour
         relationsQueue.Add(new List<GameObject> { UI_RedLens.transform.GetChild(0).gameObject, UI_Enlarger_Cart });
         relationsQueue.Add(new List<GameObject> { UI_Timeolite.transform.GetChild(0).gameObject, UI_Enlarger_Cart });
 
-        relationsQueue.Add(new List<GameObject> { UI_Cart_2.transform.GetChild(0).gameObject, UI_Developer });
+        GameObject image;
+        if (PlayerPrefs.GetString("SelectedImage") == "image2")
+        {
+            image = UI_Cart_2.transform.GetChild(1).gameObject;
+        }
+        else if (PlayerPrefs.GetString("SelectedImage") == "image3")
+        {
+            image = UI_Cart_2.transform.GetChild(2).gameObject;
+        }
+        else
+        {
+            image = UI_Cart_2.transform.GetChild(0).gameObject;
+        }
+        relationsQueue.Add(new List<GameObject> { image, UI_Developer });
     }
 
     // Update is called once per frame

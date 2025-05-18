@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.IO.Compression;
+using UnityEngine.UI;
 
-public class QuizManager_Negative : MonoBehaviour
+public class QuizManager_Cart : MonoBehaviour
 {
     private List<Question> questions;
     private Question currentQuestion;
@@ -36,89 +34,88 @@ public class QuizManager_Negative : MonoBehaviour
     private Color WrongColor = new Color(234f / 255f, 98f / 255f, 98f / 255f, 1f);
 
 
-
     void Start()
     {
         Question q1 = new Question(
-            question: "Karanlık odada filmi rulodan çıkarırken ışık seviyesi ne kadar olmalıdır?",
-            answer1: "Yüksek ışık seviyesi",
-            answer2: "Düşük ışık seviyesi",
-            answer3: "Orta seviyede ışık",
-            correctAnswer: "Işık yok"
+            question: "Karanlık odada negatiften pozitif görüntü elde etmek için hangi araç kullanılır?",
+            answer1: "Tarayıcı",
+            answer2: "Işık kutusu",
+            answer3: "Tripod",
+            correctAnswer: "Agrandizör (büyütücü)"
         );
 
         Question q2 = new Question(
-            question: "Negatif filmin karanlık odadaki yolculuğu hangi aşama ile başlar?",
-            answer1: "Fixer banyosu",
-            answer2: "Geliştirici banyosu",
-            answer3: "Yıkama",
-            correctAnswer: "Filmi makineden çıkarıp ışık geçirmez tank içine yerleştirme"
+            question: "Fotoğraf kağıdı ışığa duyarlı olduğu için hangi ışık altında çalışılır?",
+            answer1: "Güneş ışığı",
+            answer2: "Mavi LED ışık",
+            answer3: "Floresan beyaz ışık",
+            correctAnswer: "Kırmızı ya da kehribar emniyet ışığı"
         );
 
         Question q3 = new Question(
-            question: "Film banyosunda kullanılan birinci solüsyon nedir?",
-            answer1: "Fixer",
-            answer2: "Durdurma",
-            answer3: "Yıkama",
-            correctAnswer: "Geliştirici"
+            question: "Pozlandırma süresi neye göre belirlenir?",
+            answer1: "Kağıdın boyutuna göre",
+            answer2: "Karanlık oda büyüklüğüne göre",
+            answer3: "Kullanılan kimyasalın markasına göre",
+            correctAnswer: "Negatifin yoğunluğuna ve agrandizör ışığına göre"
         );
 
         Question q4 = new Question(
-            question: "Üçüncü banyonun amacı nedir?",
-            answer1: "Filmi geliştirip pozitif görüntü elde etmek",
-            answer2: "Filmin ışığa duyarlılığını artırmak",
-            answer3: "Filmin kimyasal reaksiyonlarını durdurmak",
-            correctAnswer: "Filmin görüntüsünü sabitlemek (Fixer)"
+            question: "⁠Pozlandırılmış fotoğraf kağıdı ilk olarak hangi banyoya girer?",
+            answer1: "Stop Bath",
+            answer2: "Fixer",
+            answer3: "Yıkama",
+            correctAnswer: "Developer (Geliştirici)"
         );
 
         Question q5 = new Question(
-            question: "Filmdeki görüntüyü sabitleyen solüsyonun adı nedir?",
-            answer1: "Durdurma",
-            answer2: "Yıkama",
-            answer3: "Geliştirici",
-            correctAnswer: "Fixer (hipo)"
+            question: "Baskı sürecinde kullanılan geliştirici solüsyonun amacı nedir?",
+            answer1: "Kağıdı ışığa duyarsız hale getirmek",
+            answer2: "Renkli baskı yapmak",
+            answer3: "Kimyasalı durdurmak",
+            correctAnswer: "Görüntüyü görünür hâle getirmek"
         );
 
         Question q6 = new Question(
-            question: "Film geliştirici solüsyonunun amacı nedir?",
-            answer1: "Filmin görüntüsünü netleştirmek",
-            answer2: "Filmin üzerine kimyasal maddeler eklemek",
-            answer3: "Filmi sabitlemek",
-            correctAnswer: "Film yüzeyindeki görüntüyü oluşturmak"
+            question: "Pozlandırma sonrası ikinci aşama olan durdurma banyosunun amacı nedir?",
+            answer1: "Gelişen görüntüyü keskinleştirmek",
+            answer2: "Kağıdı yumuşatmak",
+            answer3: "Renk doygunluğunu artırmak",
+            correctAnswer: "Geliştirici etkisini durdurmak"
         );
 
         Question q7 = new Question(
-            question: "Karanlık odada kullanılan durdurma solüsyonunun görevi nedir?",
-            answer1: "Filmi yıkamak",
-            answer2: "Filmi pozitif hale getirmek",
-            answer3: "Filmi ışığa karşı korumak",
-            correctAnswer: "Filmin üzerindeki kimyasal reaksiyonları durdurmak"
+            question: "Üçüncü aşama olan sabitleyici (fixer) banyo ne işe yarar?",
+            answer1: "Görüntüyü negatif hale getirir",
+            answer2: "Renk düzeltmesi yapar",
+            answer3: "Baskıdaki tozları temizler",
+            correctAnswer: "Kağıdı ışığa duyarsızlaştırarak kalıcı hale getirir"
         );
 
         Question q8 = new Question(
-            question: "Birinci banyo sıcaklığı kaç derece olmalıdır?",
-            answer1: "10°C",
-            answer2: "35°C",
-            answer3: "40°C",
-            correctAnswer: "20°C"
+            question: "Baskı işlemi tamamlandıktan sonra fotoğraf kağıdı ne kadar süreyle yıkanmalıdır?",
+            answer1: "1-2 dakika",
+            answer2: "5-10 saniye",
+            answer3: "Yıkanmaz, doğrudan kurutulur",
+            correctAnswer: "10-20 dakika"
         );
 
         Question q9 = new Question(
-            question: "Filmin yıkama aşamasının amacı nedir?",
-            answer1: "Filmi pozitif hale getirmek",
-            answer2: "Filmin üzerine baskı yapmak",
-            answer3: "Filmin üzerine renk eklemek",
-            correctAnswer: "Filmi kimyasal maddelerden arındırmak"
+            question: "Baskı sonrası kurutma işlemi nasıl yapılır?",
+            answer1: "Saç kurutma makinesi ile",
+            answer2: "Direkt güneş ışığına bırakılarak",
+            answer3: "Karanlık oda zeminine serilerek",
+            correctAnswer: "Kurutma askısına asılarak doğal şekilde"
         );
 
         Question q10 = new Question(
-            question: "Karanlık odada baskı işlemleri tamamlandıktan sonra oda nasıl bırakılmalıdır?",
-            answer1: "Kimyasallar açık bırakılmalı",
-            answer2: "Işıklar açık bırakılmalı",
-            answer3: "Kapılar açık bırakılmalı",
-            correctAnswer: "Kullanılan malzemeler temizlenip düzenlenmeli"
+            question: "Baskı işlemi sırasında doğru ton ve kontrastı elde etmek için hangi yöntem kullanılır?",
+            answer1: "Kağıdı suya batırmak",
+            answer2: "Oda sıcaklığını artırmak",
+            answer3: "Kimyasal oranlarını azaltmak",
+            correctAnswer: "Agrandizörde filtre kullanmak"
         );
-        
+
         questions = new List<Question> { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 };
         Shuffle(questions);
 
@@ -205,6 +202,7 @@ public class QuizManager_Negative : MonoBehaviour
         AnswerAndNextButton.GetComponent<Button>().onClick.AddListener(AnswerButton);
     }
 
+    
     public void ButtonSelected(Button button)
     {
         A1.GetComponent<Image>().sprite = NormalButtonSprite;

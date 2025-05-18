@@ -17,16 +17,30 @@ public class Level8ui : MonoBehaviour
     private GameObject card1;
     private GameObject card2;
     private GameObject card3;
+    private GameObject card1_H;
+    private GameObject card2_H;
+    private GameObject card3_H;
+
+    private GameObject focusedImage1;
+    private GameObject focusedImage2;
+    private GameObject focusedImage3;
 
     // Positions:
     private GameObject HorizontalCartPoint;
     private GameObject HorizontalMarjorPoint;
     private GameObject PaperOutPoint;
+    
     private GameObject Cart1_DefaultPoint;
     private GameObject Cart2_DefaultPoint;
     private GameObject Cart3_DefaultPoint;
     private GameObject CartPosition;
     private GameObject CartPoint;
+
+    private GameObject Cart1_DefaultPoint_H;
+    private GameObject Cart2_DefaultPoint_H;
+    private GameObject Cart3_DefaultPoint_H;
+    private GameObject CartPosition_H;
+    private GameObject CartPoint_H;
 
     // UI:
     private GameObject focusSettingsPanel;
@@ -59,11 +73,22 @@ public class Level8ui : MonoBehaviour
         HorizontalMarjorPoint = FindInActiveObjectByName("HorizontalMarjorPoint");
         HorizontalCartPoint = FindInActiveObjectByName("HorizontalCartPoint");
         PaperOutPoint = FindInActiveObjectByName("PaperOutPoint");
+
         Cart1_DefaultPoint = FindInActiveObjectByName("Cart1_DefaultPoint");
         Cart2_DefaultPoint = FindInActiveObjectByName("Cart2_DefaultPoint");
         Cart3_DefaultPoint = FindInActiveObjectByName("Cart3_DefaultPoint");
         CartPosition = FindInActiveObjectByName("CartPosition");
         CartPoint = FindInActiveObjectByName("CartPoint");
+
+        Cart1_DefaultPoint_H = FindInActiveObjectByName("Cart1_DefaultPoint_H");
+        Cart2_DefaultPoint_H = FindInActiveObjectByName("Cart2_DefaultPoint_H");
+        Cart3_DefaultPoint_H = FindInActiveObjectByName("Cart3_DefaultPoint_H");
+        CartPosition_H = FindInActiveObjectByName("CartPosition_H");
+        CartPoint_H = FindInActiveObjectByName("CartPoint_H");
+
+        focusedImage1 = FindInActiveObjectByName("focusedImage1");
+        focusedImage2 = FindInActiveObjectByName("focusedImage2");
+        focusedImage3 = FindInActiveObjectByName("focusedImage3");
 
         paper_1 = FindInActiveObjectByName("paper_1");
         paper_2 = FindInActiveObjectByName("paper_2");
@@ -80,6 +105,10 @@ public class Level8ui : MonoBehaviour
         card1 = FindInActiveObjectByName("Card1");
         card2 = FindInActiveObjectByName("Card2");
         card3 = FindInActiveObjectByName("Card3");
+        card1_H = FindInActiveObjectByName("Card1_H");
+        card2_H = FindInActiveObjectByName("Card2_H");
+        card3_H = FindInActiveObjectByName("Card3_H");
+        
 
         focusSettingsPanel = FindInActiveObjectByName("focusingSettings");
         focusSlider = FindInActiveObjectByName("SliderS");
@@ -97,18 +126,18 @@ public class Level8ui : MonoBehaviour
         clue_6 = FindInActiveObjectByName("Clue6");
         warning = FindInActiveObjectByName("Warning");
 
-        selectedImageName = PlayerPrefs.GetString("selectedImageName");
+        selectedImageName = PlayerPrefs.GetString("SelectedImage");
     }
 
     void Start()
     {
-        if (selectedImage)
+        if (selectedImageName != "")
         {
             selectedImage = images[selectedImageName];
         }
         else {
-            selectedImageName = "image3";
-            selectedImage = images["image3"];
+            selectedImageName = "image2";
+            selectedImage = images["image2"];
         }
 
         if (selectedImageName == "image2") {
@@ -116,7 +145,31 @@ public class Level8ui : MonoBehaviour
             marjor.GetComponent<Transform>().rotation = HorizontalMarjorPoint.transform.rotation;
             selectedImage.GetComponent<Transform>().position = HorizontalCartPoint.transform.position;
             selectedImage.GetComponent<Transform>().rotation = HorizontalCartPoint.transform.rotation;
+
+            focusedImage1.SetActive(false);
+            focusedImage2.SetActive(true);
+            focusedImage3.SetActive(false);
         }
+        else if (selectedImageName == "image3")
+        {
+            focusedImage1.SetActive(false);
+            focusedImage2.SetActive(false);
+            focusedImage3.SetActive(true);
+
+            Destroy(card1.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
+            Destroy(card2.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
+            Destroy(card3.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[0]);
+        }
+        else {
+            focusedImage1.SetActive(true);
+            focusedImage2.SetActive(false);
+            focusedImage3.SetActive(false);
+            
+            Destroy(card1.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
+            Destroy(card2.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
+            Destroy(card3.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1]);
+        }
+
         selectedImage.SetActive(true);
 
         clue_1.GetComponentInChildren<Button>().onClick.AddListener(() =>
@@ -131,11 +184,6 @@ public class Level8ui : MonoBehaviour
             //     // Make Blur Updates
             // });
         });
-    }
-
-    void Update()
-    {
-        
     }
 
 
@@ -195,64 +243,96 @@ public class Level8ui : MonoBehaviour
 
     private IEnumerator OnClue4NextButtonClick()
     {
+        GameObject card_1;
+        GameObject card_2;
+        GameObject card_3;
+        GameObject Cart_Point;
+        GameObject Cart_Position;
+        GameObject _Cart1_DefaultPoint;
+        GameObject _Cart2_DefaultPoint;
+        GameObject _Cart3_DefaultPoint;
+
+        if (selectedImageName == "image2")
+        {
+            card_1 = card1_H;
+            card_2 = card2_H;
+            card_3 = card3_H;
+            Cart_Point = CartPoint_H;
+            Cart_Position = CartPosition_H;
+            _Cart1_DefaultPoint = Cart1_DefaultPoint_H;
+            _Cart2_DefaultPoint = Cart2_DefaultPoint_H;
+            _Cart3_DefaultPoint = Cart3_DefaultPoint_H;
+        }
+        else
+        {
+            card_1 = card1;
+            card_2 = card2;
+            card_3 = card3;
+            Cart_Point = CartPoint;
+            Cart_Position = CartPosition;
+            _Cart1_DefaultPoint = Cart1_DefaultPoint;
+            _Cart2_DefaultPoint = Cart2_DefaultPoint;
+            _Cart3_DefaultPoint = Cart3_DefaultPoint;
+        }
+
         clue_4.SetActive(false);
         selectedImage.transform.DOKill();
         selectedImage.transform.DOMove(PaperOutPoint.transform.position, 1f);
-        card1.SetActive(true);
-        card2.SetActive(true);
-        card3.SetActive(true);
+        card_1.SetActive(true);
+        card_2.SetActive(true);
+        card_3.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        card1.transform.DOKill();
-        card1.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_1.transform.DOKill();
+        card_1.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card1.transform.DOMove(CartPosition.transform.position, 0.5f);
+            card_1.transform.DOMove(Cart_Position.transform.position, 0.5f);
         });
 
         yield return new WaitForSeconds(1.7f);
-        card1.transform.GetChild(0).gameObject.SetActive(true);
+        card_1.transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(1.3f);
 
-        card1.transform.DOKill();
-        card1.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_1.transform.DOKill();
+        card_1.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card1.transform.DOMove(Cart1_DefaultPoint.transform.position, 0.5f);
+            card_1.transform.DOMove(_Cart1_DefaultPoint.transform.position, 0.5f);
         });
 
         yield return new WaitForSeconds(1.5f);
 
-        card2.transform.DOKill();
-        card2.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_2.transform.DOKill();
+        card_2.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card2.transform.DOMove(CartPosition.transform.position, 0.5f);    
+            card_2.transform.DOMove(Cart_Position.transform.position, 0.5f);    
         });
         
         yield return new WaitForSeconds(1.7f);
-        card2.transform.GetChild(0).gameObject.SetActive(true);
+        card_2.transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
 
-        card2.transform.DOKill();
-        card2.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_2.transform.DOKill();
+        card_2.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card2.transform.DOMove(Cart2_DefaultPoint.transform.position, 0.5f);
+            card_2.transform.DOMove(_Cart2_DefaultPoint.transform.position, 0.5f);
         });
 
         yield return new WaitForSeconds(1.5f);
 
-        card3.transform.DOKill();
-        card3.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_3.transform.DOKill();
+        card_3.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card3.transform.DOMove(CartPosition.transform.position, 0.5f);
+            card_3.transform.DOMove(Cart_Position.transform.position, 0.5f);
         });
 
         yield return new WaitForSeconds(1.7f);
-        card3.transform.GetChild(0).gameObject.SetActive(true);
+        card_3.transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
 
-        card3.transform.DOKill();
-        card3.transform.DOMove(CartPoint.transform.position, 1f).OnComplete(() =>
+        card_3.transform.DOKill();
+        card_3.transform.DOMove(Cart_Point.transform.position, 1f).OnComplete(() =>
         {
-            card3.transform.DOMove(Cart3_DefaultPoint.transform.position, 0.5f);
+            card_3.transform.DOMove(_Cart3_DefaultPoint.transform.position, 0.5f);
         });
 
         yield return new WaitForSeconds(1.5f);
@@ -276,7 +356,7 @@ public class Level8ui : MonoBehaviour
         selectedImageList.SetActive(true);
         PozometerSelection.SetActive(true);
 
-        for (int i = 0; i < selectedImageList.transform.childCount; i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject child = selectedImageList.transform.GetChild(i).gameObject;
             child.GetComponent<Button>().onClick.AddListener(() =>
@@ -286,7 +366,18 @@ public class Level8ui : MonoBehaviour
                 selectedImageList.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
                 selectedPosometerTime = child.name;
                 child.transform.GetChild(0).gameObject.SetActive(true);
-                
+                if (i == 0)
+                {
+                    selectedPosometerTime = "3";
+                }
+                else if ( i == 1)
+                {
+                    selectedPosometerTime = "5";
+                }
+                else if (i == 2)
+                {
+                    selectedPosometerTime = "7";
+                }
             });
         }
 
@@ -299,7 +390,8 @@ public class Level8ui : MonoBehaviour
         {
             PozometerSelection.SetActive(false);
             clue_6.SetActive(true);
-            // Next level
+            
+            PlayerPrefs.SetString("selectedPosometerTime", selectedPosometerTime);
         }
     }
 
